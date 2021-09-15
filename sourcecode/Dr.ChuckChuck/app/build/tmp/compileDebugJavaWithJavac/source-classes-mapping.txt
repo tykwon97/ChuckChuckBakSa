@@ -1,0 +1,4 @@
+org/tensorflow/odelabs/objectdetection/databinding/ActivityMainBinding.java
+ org.tensorflow.odelabs.objectdetection.databinding.ActivityMainBinding
+org/tensorflow/odelabs/objectdetection/BuildConfig.java
+ org.tensorflow.odelabs.objectdetection.BuildConfig

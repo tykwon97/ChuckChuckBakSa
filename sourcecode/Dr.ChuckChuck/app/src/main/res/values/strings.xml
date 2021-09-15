@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Object Detection Codelab</string>
+    <string name="take_photo">Take photo</string>
+    <string name="get_photo">Get photo</string>
+    <string name="tv_description">Select a preset image or take a new photo</string>
+
+</resources>
