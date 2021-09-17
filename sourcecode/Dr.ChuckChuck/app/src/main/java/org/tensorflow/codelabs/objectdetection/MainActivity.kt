@@ -120,8 +120,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 //"model2.tflite", //컵라면, 캔, 빨대, 건전지, 아이스팩
                 //"modelV2.tflite", //컵라면, 캔, 빨대, 건전지, 페트병, 종이컵
                 //"modelV3.tflite", //컵라면, 캔, 빨대, 건전지, 페트병, 종이컵
-                "modelV4_2.tflite", //컵라면, 캔, 빨대, 건전지, 페트병, 종이컵
+                //"modelV4_2.tflite", //컵라면, 캔, 빨대, 건전지, 페트병, 종이컵
                 //"modelV4.tflite", //컵라면, 캔, 빨대, 건전지, 아이스팩
+            "model004.tflite", // 9라벨, v2, batch16
                 options
         )
 
