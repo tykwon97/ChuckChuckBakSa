@@ -89,6 +89,7 @@ attr alertDialogButtonGroupStyle
 attr alertDialogCenterButtons
 attr alertDialogStyle
 attr alertDialogTheme
+attr alignmentMode
 attr allowStacking
 attr alpha
 attr alphabeticModifiers
@@ -250,6 +251,8 @@ attr colorSecondary
 attr colorSecondaryVariant
 attr colorSurface
 attr colorSwitchThumbNormal
+attr columnCount
+attr columnOrderPreserved
 attr commitIcon
 attr constraintSet
 attr constraintSetEnd
@@ -504,6 +507,9 @@ attr layout_anchorGravity
 attr layout_behavior
 attr layout_collapseMode
 attr layout_collapseParallaxMultiplier
+attr layout_column
+attr layout_columnSpan
+attr layout_columnWeight
 attr layout_constrainedHeight
 attr layout_constrainedWidth
 attr layout_constraintBaseline_creator
@@ -555,9 +561,13 @@ attr layout_goneMarginLeft
 attr layout_goneMarginRight
 attr layout_goneMarginStart
 attr layout_goneMarginTop
+attr layout_gravity
 attr layout_insetEdge
 attr layout_keyline
 attr layout_optimizationLevel
+attr layout_row
+attr layout_rowSpan
+attr layout_rowWeight
 attr layout_scrollFlags
 attr layout_scrollInterpolator
 attr liftOnScroll
@@ -658,6 +668,7 @@ attr onNegativeCross
 attr onPositiveCross
 attr onShow
 attr onTouchUp
+attr orientation
 attr overlapAnchor
 attr overlay
 attr paddingBottomNoButtons
@@ -714,6 +725,8 @@ attr reverseLayout
 attr rippleColor
 attr round
 attr roundPercent
+attr rowCount
+attr rowOrderPreserved
 attr saturation
 attr scrimAnimationDuration
 attr scrimBackground
@@ -907,6 +920,7 @@ attr triggerReceiver
 attr triggerSlack
 attr ttcIndex
 attr useCompatPadding
+attr useDefaultMargins
 attr useMaterialThemeColors
 attr values
 attr verticalOffset
@@ -1241,6 +1255,7 @@ dimen compat_control_corner_material
 dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
 dimen default_dimension
+dimen default_gap
 dimen design_appbar_elevation
 dimen design_bottom_navigation_active_item_max_width
 dimen design_bottom_navigation_active_item_min_width
@@ -1627,6 +1642,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable battery
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1635,12 +1651,26 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable can
+drawable category_battery
+drawable category_can
+drawable category_cupramen
+drawable category_feedingbottle
+drawable category_icepack
+drawable category_milk
+drawable category_papercup
+drawable category_petbottle
+drawable category_plasticspoon
+drawable category_rubberglove
+drawable cloth
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable glass
+drawable homeappliance
 drawable ic_baseline_photo_album_24
 drawable ic_baseline_sports_kabaddi_24
 drawable ic_camera
@@ -1652,6 +1682,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable logo
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -1684,9 +1715,14 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable paper
+drawable plastic
+drawable styrofoam
 drawable test_custom_background
+drawable tip_icon
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable vinly
 font font
 font gmarketsansttfbold
 font gmarketsansttflight
@@ -1694,18 +1730,30 @@ font gmarketsansttfmediam
 id ALT
 id BOTTOM_END
 id BOTTOM_START
+id Battery_btn
 id CTRL
+id Can_btn
+id Cloth_btn
+id Confused_btn
+id Detail_Btn
+id Detail_img
 id FUNCTION
 id GetImageFab
+id Glass_btn
+id HomeAppliance_btn
 id META
 id NO_DEBUG
+id Paper_btn
+id Plastic_btn
 id SHIFT
 id SHOW_ALL
 id SHOW_PATH
 id SHOW_PROGRESS
 id SYM
+id Styrofoam_btn
 id TOP_END
 id TOP_START
+id Vinyl_btn
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -1761,6 +1809,8 @@ id actions
 id activity_chooser_view_content
 id add
 id alertTitle
+id alignBounds
+id alignMargins
 id aligned
 id all
 id always
@@ -1779,10 +1829,23 @@ id beginning
 id blocking
 id bottom
 id bounce
+id button1
+id button10
+id button2
+id button3
+id button4
+id button5
+id button6
+id button7
+id button8
+id button9
 id buttonPanel
 id cache_measures
 id cancel_button
 id captureImageFab
+id category_btn
+id category_image
+id categorytext
 id center
 id center_horizontal
 id center_vertical
@@ -1875,6 +1938,7 @@ id hideable
 id home
 id homeAsUp
 id honorRequest
+id horizontal
 id icon
 id icon_group
 id ifRoom
@@ -1882,6 +1946,7 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id imageView2
 id info
 id invisible
 id inward
@@ -2043,6 +2108,7 @@ id start
 id startHorizontal
 id startToEnd
 id startVertical
+id start_btn
 id staticLayout
 id staticPostLayout
 id stop
@@ -2069,6 +2135,9 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView
+id textView2
+id textView4
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2100,6 +2169,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id vertical
 id view_offset_helper
 id view_tree_lifecycle_owner
 id visible
@@ -2168,7 +2238,10 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_category
+layout activity_intro
 layout activity_main
+layout activity_tip
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3125,6 +3198,8 @@ styleable FontFamilyFont android_font android_fontWeight android_fontStyle andro
 styleable ForegroundLinearLayout android_foreground android_foregroundGravity foregroundInsidePadding
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
+styleable GridLayout alignmentMode columnCount columnOrderPreserved orientation rowCount rowOrderPreserved useDefaultMargins
+styleable GridLayout_Layout android_layout_width android_layout_height android_layout_margin android_layout_marginLeft android_layout_marginTop android_layout_marginRight android_layout_marginBottom layout_column layout_columnSpan layout_columnWeight layout_gravity layout_row layout_rowSpan layout_rowWeight
 styleable ImageFilterView altSrc brightness contrast crossfade overlay round roundPercent saturation warmth
 styleable Insets paddingBottomSystemWindowInsets paddingLeftSystemWindowInsets paddingRightSystemWindowInsets
 styleable KeyAttribute android_alpha android_transformPivotX android_transformPivotY android_translationX android_translationY android_scaleX android_scaleY android_rotation android_rotationX android_rotationY android_translationZ android_elevation curveFit framePosition motionProgress motionTarget transitionEasing transitionPathRotate

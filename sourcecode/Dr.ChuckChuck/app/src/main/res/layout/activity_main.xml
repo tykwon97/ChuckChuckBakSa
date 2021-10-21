@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,12 +17,14 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:font="@font/gmarketsansttfmediam"
+            android:fontFamily="@font/gmarketsansttfmediam"
             android:gravity="center"
-            android:hint="결과"
             android:text=""
             android:textSize="22sp" />
+
     </LinearLayout>
 
     <FrameLayout
@@ -33,7 +36,9 @@
             android:layout_width="match_parent"
             android:layout_height="109dp"
             android:layout_gravity="center"
-            android:font="@font/gmarketsansttfmediam"
+            android:layout_marginBottom="250dp"
+            android:textColor="#46AE4A"
+            android:fontFamily="@font/gmarketsansttfmediam"
             android:text="분리수거 척척박사"
             android:textAlignment="center"
             android:textSize="40sp" />
@@ -41,10 +46,13 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="571dp"
-            android:adjustViewBounds="true"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="100dp"
+            android:adjustViewBounds="false"
             android:contentDescription="@null"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,30 +63,50 @@
             <Button
                 android:id="@+id/captureImageFab"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_gravity="bottom"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_camera"
-                android:font="@font/gmarketsansttfmediam"
-                android:text="@string/take_photo"
-                android:textAllCaps="false" />
+                android:fontFamily="@font/gmarketsansttfmediam"
+                android:text="사진\n촬영하기"
+                android:textAllCaps="false"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/Detail_Btn"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/tip_icon"
+                android:fontFamily="@font/gmarketsansttfmediam"
+                android:text="자세한\nTip!"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                app:icon="@drawable/tip_icon"
+                app:iconTint="#FFFFFF" />
 
             <Button
                 android:id="@+id/GetImageFab"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_gravity="bottom"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_baseline_photo_album_24"
-                android:font="@font/gmarketsansttfmediam"
-                android:text="@string/get_photo"
-                android:textAllCaps="false" />
+                android:fontFamily="@font/gmarketsansttfmediam"
+                android:text="사진\n불러오기"
+                android:textAllCaps="false"
+                android:textSize="12sp" />
+
         </LinearLayout>
 
     </FrameLayout>

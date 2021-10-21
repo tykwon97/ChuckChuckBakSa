@@ -1,4 +1,10 @@
+org/tensorflow/odelabs/objectdetection/databinding/ActivityTipBinding.java
+ org.tensorflow.odelabs.objectdetection.databinding.ActivityTipBinding
+org/tensorflow/odelabs/objectdetection/databinding/ActivityIntroBinding.java
+ org.tensorflow.odelabs.objectdetection.databinding.ActivityIntroBinding
 org/tensorflow/odelabs/objectdetection/databinding/ActivityMainBinding.java
  org.tensorflow.odelabs.objectdetection.databinding.ActivityMainBinding
+org/tensorflow/odelabs/objectdetection/databinding/ActivityCategoryBinding.java
+ org.tensorflow.odelabs.objectdetection.databinding.ActivityCategoryBinding
 org/tensorflow/odelabs/objectdetection/BuildConfig.java
  org.tensorflow.odelabs.objectdetection.BuildConfig

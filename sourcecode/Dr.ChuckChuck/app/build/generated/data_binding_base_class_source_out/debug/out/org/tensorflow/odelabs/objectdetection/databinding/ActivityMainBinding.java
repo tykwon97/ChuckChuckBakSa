@@ -22,6 +22,9 @@ public final class ActivityMainBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
+  public final Button DetailBtn;
+
+  @NonNull
   public final Button GetImageFab;
 
   @NonNull
@@ -39,11 +42,12 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final TextView tvPlaceholder;
 
-  private ActivityMainBinding(@NonNull RelativeLayout rootView, @NonNull Button GetImageFab,
-      @NonNull Button captureImageFab, @NonNull ImageView imageView,
+  private ActivityMainBinding(@NonNull RelativeLayout rootView, @NonNull Button DetailBtn,
+      @NonNull Button GetImageFab, @NonNull Button captureImageFab, @NonNull ImageView imageView,
       @NonNull LinearLayout llSampleImage, @NonNull TextView name,
       @NonNull TextView tvPlaceholder) {
     this.rootView = rootView;
+    this.DetailBtn = DetailBtn;
     this.GetImageFab = GetImageFab;
     this.captureImageFab = captureImageFab;
     this.imageView = imageView;
@@ -79,6 +83,12 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.Detail_Btn;
+      Button DetailBtn = rootView.findViewById(id);
+      if (DetailBtn == null) {
+        break missingId;
+      }
+
       id = R.id.GetImageFab;
       Button GetImageFab = rootView.findViewById(id);
       if (GetImageFab == null) {
@@ -115,8 +125,8 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((RelativeLayout) rootView, GetImageFab, captureImageFab,
-          imageView, llSampleImage, name, tvPlaceholder);
+      return new ActivityMainBinding((RelativeLayout) rootView, DetailBtn, GetImageFab,
+          captureImageFab, imageView, llSampleImage, name, tvPlaceholder);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

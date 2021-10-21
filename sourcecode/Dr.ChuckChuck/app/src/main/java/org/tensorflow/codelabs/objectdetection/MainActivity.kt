@@ -1,7 +1,9 @@
 package org.tensorflow.codelabs.objectdetection
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.ActivityNotFoundException
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.*
 import android.net.Uri
@@ -43,9 +45,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private val OPEN_GALLERY = 100
     private lateinit var getImageFab: Button
     private lateinit var captureImageFab: Button
+    private lateinit var detailInformation : Button
     private lateinit var inputImageView: ImageView
     private lateinit var tvPlaceholder: TextView
     private lateinit var currentPhotoPath: String
+    private lateinit var name : TextView
+    private var label = ""
+    private var category_name = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,18 +62,25 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         getImageFab = findViewById(R.id.GetImageFab)
         captureImageFab = findViewById(R.id.captureImageFab)
         inputImageView = findViewById(R.id.imageView)
+        detailInformation = findViewById(R.id.Detail_Btn)
         tvPlaceholder = findViewById(R.id.tvPlaceholder)
+        name = findViewById(R.id.name)
         captureImageFab.setOnClickListener(this)
         getImageFab.setOnClickListener(this)
-        var productName = findViewById<TextView>(R.id.name)
+        detailInformation.setOnClickListener(this)
 
+        name.visibility = View.INVISIBLE
+
+        //값 저장해두기
+        App.prefs1!!.myIndex1 = ""
     }
-
-
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
+        //결과 출력
+        name.visibility = View.VISIBLE
+
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             Send_Image(getCapturedImage())
         } else if(requestCode == OPEN_GALLERY && resultCode == Activity.RESULT_OK){
@@ -83,21 +97,48 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.captureImageFab -> {
-                try {
-                    //dispatchTakePictureIntent()
-                    Shooting_Image()
-                } catch (e: ActivityNotFoundException) {
-                    Log.e(TAG, e.message.toString())
-                }
+                AlertDialog.Builder(this)
+                    .setTitle("< 촬영 가이드라인 >")
+                    .setMessage("1. 주변에 다른 물체를 두지 않는다. \n" +"2. 단색 배경에서 촬영한다.\n" + "3. 정면에서 15도로 촬영한다.")
+                    .setPositiveButton("확인", object : DialogInterface.OnClickListener {
+                        override fun onClick(dialog: DialogInterface, which: Int) {
+                            Log.d("MyTag", "positive")
+                            try {
+                                //dispatchTakePictureIntent()
+                                Shooting_Image()
+                            } catch (e: ActivityNotFoundException) {
+                                Log.e(TAG, e.message.toString())
+                            }
+                        }
+                    })
+                    .setNegativeButton("취소") { dialogInterface: DialogInterface, i: Int -> }
+                    .show()
             }
             R.id.GetImageFab -> {
-                try {
-                    //openGallery()
-                    Upload_Image()
-                } catch (e: ActivityNotFoundException) {
-                    Log.e(TAG, e.message.toString())
-                }
+                AlertDialog.Builder(this)
+                    .setTitle("촬영 가이드라인")
+                    .setMessage("1. 주변에 다른 물체를 두지 않는다. \n" +"2. 단색 배경에서 촬영한다.\n" + "3. 정면에서 15도로 촬영한다.")
+                    .setPositiveButton("확인", object : DialogInterface.OnClickListener {
+                        override fun onClick(dialog: DialogInterface, which: Int) {
+                            Log.d("MyTag", "positive")
+                            try {
+                                //openGallery()
+                                Upload_Image()
+                            } catch (e: ActivityNotFoundException) {
+                                Log.e(TAG, e.message.toString())
+                            }
+                        }
+                    })
+                    .setNegativeButton("취소") { dialogInterface: DialogInterface, i: Int -> }
+                    .show()
             }
+
+            //자세한 분리수거 Tip!
+            R.id.Detail_Btn -> {
+                val intent = Intent(this,TipActivity::class.java)
+                startActivity(intent)
+            }
+
         }
     }
 
@@ -110,34 +151,63 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         // Step 2: ObjectDetector 인스턴스 (객체를 만들기 위한 구성 포함)
         val options = ObjectDetector.ObjectDetectorOptions.builder()
                 .setMaxResults(1)
-                .setScoreThreshold(0.6f)
+                .setScoreThreshold(0.7f)
                 .build()
 
         //물체 감지기 만들기
         val detector = ObjectDetector.createFromFileAndOptions(
                 this,
-                //"model.tflite", //빨대
-                //"model2.tflite", //컵라면, 캔, 빨대, 건전지, 아이스팩
-                //"modelV2.tflite", //컵라면, 캔, 빨대, 건전지, 페트병, 종이컵
-                //"modelV3.tflite", //컵라면, 캔, 빨대, 건전지, 페트병, 종이컵
-                //"modelV4_2.tflite", //컵라면, 캔, 빨대, 건전지, 페트병, 종이컵
-                //"modelV4.tflite", //컵라면, 캔, 빨대, 건전지, 아이스팩
-            "model004.tflite", // 9라벨, v2, batch16
+            "model011.tflite",//21-10-20
                 options
         )
 
         // Step 3: 모델에 사진 전송
         val results = detector.detect(image)
+        Log.i("results",results.toString())
 
         // Step 4: 탐지 결과 출력
         val resultToDisplay = results.map {
             val category = it.categories.first() //정확도가 제일 높은 카테고리 선택
 
             Log.i("test",category.label.toString())
-            val text = "${category.label}, ${category.score.times(100).toInt()}%" //%결과로 출력
+            Log.i("test",it.categories.toString())
+
+            if(category.label == "FeedingBottle") {
+                label = "젖병"
+            } else if(category.label == "battery"){
+                label = "건전지"
+            } else if(category.label == "can"){
+                label = "캔"
+            } else if(category.label == "cupramen"){
+                label = "컵라면"
+            }else if(category.label == "icepack"){
+                label = "아이스팩"
+            }else if(category.label == "milk"){
+                label = "우유팩"
+            }else if(category.label == "papercup"){
+                label = "종이컵"
+            }else if(category.label == "petbottle"){
+                label = "페트병"
+            }else if(category.label == "rubberGlove"){
+                label = "고무장갑"
+            }else if(category.label == "spoon"){
+                label = "일회용 숟가락"
+            }else{
+                label = ""
+            }
+
+            val text1 = "${"카테고리 : "+ label+" "}, ${"정확도 : "+category.score.times(100).toInt()}%" //%결과로 출력
+
+            //val text1 = "${"카테고리 : "+ category.label+" "}, ${"정확도 : "+category.score.times(100).toInt()}%" //%결과로 출력
+            //val text2 = "${category.label}, ${category.score.times(100).toInt()}%" //%결과로 출력
+            val text2 = "${label}, ${category.score.times(100).toInt()}%" //%결과로 출력
+
+            //값 저장해두기
+            //App.prefs1!!.myIndex1 = category.label.toString()
+            App.prefs1!!.myIndex1 = label
 
             // 객체에 결과 값 전달
-            DetectionResult(it.boundingBox, text)
+            DetectionResult(it.boundingBox, text1,text2)
         }
 
         //탐지 결과 그리기
@@ -326,7 +396,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             //MainActivity에 결과 출력
             Thread {
                 runOnUiThread {
-                    binding.name.setText(it.text)
+
+                    binding.name.setText(it.text1)
                 }
             }.start()
 
@@ -337,17 +408,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             pen.strokeWidth = 2F
 
             pen.textSize = MAX_FONT_SIZE
-            pen.getTextBounds(it.text, 0, it.text.length, tagSize)
+            pen.getTextBounds(it.text2, 0, it.text2.length, tagSize)
             val fontSize: Float = pen.textSize * box.width() / tagSize.width()
 
             if (fontSize < pen.textSize) pen.textSize = fontSize
 
             var margin = (box.width() - tagSize.width()) / 2.0F
             if (margin < 0F) margin = 0F
-            canvas.drawText(
-                it.text, box.left + margin,
-                box.top + tagSize.height().times(1F), pen
-            )
+            //글자 제거
+//            canvas.drawText(
+//                it.text2, box.left + margin,
+//                box.top + tagSize.height().times(1F), pen
+//            )
         }
         return outputBitmap
     }
@@ -358,4 +430,4 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
  *      A class to store the visualization info of a detected object.
  */
 //시각화를 포함하는 데이터 클래스
-data class DetectionResult(val boundingBox: RectF, val text: String)
+data class DetectionResult(val boundingBox: RectF, val text1: String, val text2 : String)

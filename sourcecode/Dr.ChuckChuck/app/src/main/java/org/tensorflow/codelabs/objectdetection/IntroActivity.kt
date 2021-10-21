@@ -16,7 +16,6 @@ class IntroActivity : AppCompatActivity() {
         val btn1 = findViewById<Button>(R.id.start_btn)
         val btn2 = findViewById<Button>(R.id.category_btn)
 
-
         btn1.setOnClickListener {
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)

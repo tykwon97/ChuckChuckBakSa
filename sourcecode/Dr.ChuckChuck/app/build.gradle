@@ -49,4 +49,5 @@ dependencies {
 
     // TFLite
     implementation 'org.tensorflow:tensorflow-lite-task-vision:0.2.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
 }

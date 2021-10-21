@@ -20,22 +20,37 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
+        android:name="org.tensorflow.codelabs.objectdetection.App"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:extractNativeLibs="false"
-        android:icon="@drawable/ic_baseline_sports_kabaddi_24"
+        android:icon="@drawable/logo"
         android:label="분리수거 척척박사"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.ObjectDetection" >
-        <activity android:name="org.tensorflow.codelabs.objectdetection.MainActivity" >
+        <activity
+            android:name="org.tensorflow.codelabs.objectdetection.TipActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="org.tensorflow.codelabs.objectdetection.IntroActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="org.tensorflow.codelabs.objectdetection.CategoryActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="org.tensorflow.codelabs.objectdetection.MainActivity"
+            android:screenOrientation="portrait" >
         </activity>
 
         <provider
