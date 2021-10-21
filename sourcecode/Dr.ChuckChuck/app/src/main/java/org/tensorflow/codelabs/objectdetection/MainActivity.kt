@@ -97,6 +97,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.captureImageFab -> {
+                name.setText("")
                 AlertDialog.Builder(this)
                     .setTitle("< 촬영 가이드라인 >")
                     .setMessage("1. 주변에 다른 물체를 두지 않는다. \n" +"2. 단색 배경에서 촬영한다.\n" + "3. 정면에서 15도로 촬영한다.")
@@ -115,6 +116,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     .show()
             }
             R.id.GetImageFab -> {
+                name.setText("")
                 AlertDialog.Builder(this)
                     .setTitle("촬영 가이드라인")
                     .setMessage("1. 주변에 다른 물체를 두지 않는다. \n" +"2. 단색 배경에서 촬영한다.\n" + "3. 정면에서 15도로 촬영한다.")
