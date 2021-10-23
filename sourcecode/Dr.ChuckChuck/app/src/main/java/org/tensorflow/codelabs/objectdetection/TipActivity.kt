@@ -53,7 +53,7 @@ class TipActivity : AppCompatActivity() {
         if(category_name == "젖병") {
             blind(1)
             image.setImageResource(R.drawable.category_feedingbottle)
-        } else if(category_name == "배터리"){
+        } else if(category_name == "건전지"){
             blind(1)
             image.setImageResource(R.drawable.category_battery)
         } else if(category_name == "캔"){
