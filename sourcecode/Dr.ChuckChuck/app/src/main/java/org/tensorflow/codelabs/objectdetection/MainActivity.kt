@@ -398,7 +398,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             //MainActivity에 결과 출력
             Thread {
                 runOnUiThread {
-
                     binding.name.setText(it.text1)
                 }
             }.start()
