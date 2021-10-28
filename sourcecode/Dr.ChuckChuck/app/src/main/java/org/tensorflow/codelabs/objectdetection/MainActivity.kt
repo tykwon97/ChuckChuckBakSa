@@ -12,9 +12,6 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
@@ -42,16 +39,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     lateinit var binding: ActivityMainBinding
+
     private val OPEN_GALLERY = 100
-    private lateinit var getImageFab: Button
-    private lateinit var captureImageFab: Button
-    private lateinit var detailInformation : Button
-    private lateinit var inputImageView: ImageView
-    private lateinit var tvPlaceholder: TextView
     private lateinit var currentPhotoPath: String
-    private lateinit var name : TextView
     private var label = ""
-    private var category_name = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,17 +50,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        getImageFab = findViewById(R.id.GetImageFab)
-        captureImageFab = findViewById(R.id.captureImageFab)
-        inputImageView = findViewById(R.id.imageView)
-        detailInformation = findViewById(R.id.Detail_Btn)
-        tvPlaceholder = findViewById(R.id.tvPlaceholder)
-        name = findViewById(R.id.name)
-        captureImageFab.setOnClickListener(this)
-        getImageFab.setOnClickListener(this)
-        detailInformation.setOnClickListener(this)
-
-        name.visibility = View.INVISIBLE
+        binding.captureImageFab.setOnClickListener(this)
+        binding.GetImageFab.setOnClickListener(this)
+        binding.DetailBtn.setOnClickListener(this)
+        binding.name.visibility = View.INVISIBLE
 
         //값 저장해두기
         App.prefs1!!.myIndex1 = ""
@@ -79,7 +63,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onActivityResult(requestCode, resultCode, data)
 
         //결과 출력
-        name.visibility = View.VISIBLE
+        binding.name.visibility = View.VISIBLE
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             Send_Image(getCapturedImage())
@@ -97,7 +81,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.captureImageFab -> {
-                name.setText("")
+                binding.name.setText("")
                 AlertDialog.Builder(this)
                     .setTitle("< 촬영 가이드라인 >")
                     .setMessage("1. 주변에 다른 물체를 두지 않는다. \n" +"2. 단색 배경에서 촬영한다.\n" + "3. 정면에서 15도로 촬영한다.")
@@ -116,7 +100,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     .show()
             }
             R.id.GetImageFab -> {
-                name.setText("")
+                binding.name.setText("")
                 AlertDialog.Builder(this)
                     .setTitle("촬영 가이드라인")
                     .setMessage("1. 주변에 다른 물체를 두지 않는다. \n" +"2. 단색 배경에서 촬영한다.\n" + "3. 정면에서 15도로 촬영한다.")
@@ -215,7 +199,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         //탐지 결과 그리기
         val imgWithResult = Inform_Result(bitmap, resultToDisplay)
         runOnUiThread {
-            inputImageView.setImageBitmap(imgWithResult)
+            binding.imageView.setImageBitmap(imgWithResult)
         }
     }
 
@@ -243,8 +227,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
      *      Set image to view and call object detection
      */
     private fun Send_Image(bitmap: Bitmap) {
-        inputImageView.setImageBitmap(bitmap) //사진 화면에 띄우기
-        tvPlaceholder.visibility = View.INVISIBLE //분리수거 척척박사 문장 제거
+        binding.imageView.setImageBitmap(bitmap) //사진 화면에 띄우기
+        binding.tvPlaceholder.visibility = View.INVISIBLE //분리수거 척척박사 문장 제거
 
         lifecycleScope.launch(Dispatchers.Default) { Run_Model(bitmap) } //모델에 사진 전송
         //계산 많이 함 ->백그라운드 스레드에서 OD 수행(app ui blocking예방)
@@ -257,8 +241,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
      */
     private fun getCapturedImage(): Bitmap {
         // Get the dimensions of the View
-        val targetW: Int = inputImageView.width
-        val targetH: Int = inputImageView.height
+        val targetW: Int = binding.imageView.width
+        val targetH: Int = binding.imageView.height
 
         val bmOptions = BitmapFactory.Options().apply {
             // Get the dimensions of the bitmap
@@ -283,7 +267,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             ExifInterface.ORIENTATION_UNDEFINED
         )
 
-        val bitmap = BitmapFactory.decodeFile(currentPhotoPath, bmOptions)
+        val bitmap = BitmapFactory.decodeFile(`currentPhotoPath`, bmOptions)
         return when (orientation) {
             ExifInterface.ORIENTATION_ROTATE_90 -> {
                 rotateImage(bitmap, 90f)

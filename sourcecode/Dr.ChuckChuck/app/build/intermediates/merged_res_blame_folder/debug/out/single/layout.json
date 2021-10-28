@@ -4,40 +4,8 @@
         "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\layout\\activity_category.xml"
     },
     {
-        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_carton_detail.xml",
-        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\layout\\activity_carton_detail.xml"
-    },
-    {
-        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\raw.xml",
-        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\layout\\raw.xml"
-    },
-    {
         "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_tip.xml",
         "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\layout\\activity_tip.xml"
-    },
-    {
-        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_plastic_detail.xml",
-        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\layout\\activity_plastic_detail.xml"
-    },
-    {
-        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_can_detail.xml",
-        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\layout\\activity_can_detail.xml"
-    },
-    {
-        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_cloth_detail.xml",
-        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\layout\\activity_cloth_detail.xml"
-    },
-    {
-        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_home_appliance_detail.xml",
-        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\layout\\activity_home_appliance_detail.xml"
-    },
-    {
-        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_vinly_detail.xml",
-        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\layout\\activity_vinly_detail.xml"
-    },
-    {
-        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_paper_detail.xml",
-        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\layout\\activity_paper_detail.xml"
     },
     {
         "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
@@ -46,17 +14,5 @@
     {
         "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_intro.xml",
         "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\layout\\activity_intro.xml"
-    },
-    {
-        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_battery_detail.xml",
-        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\layout\\activity_battery_detail.xml"
-    },
-    {
-        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_styrofoam_detail.xml",
-        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\layout\\activity_styrofoam_detail.xml"
-    },
-    {
-        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_glass_detail.xml",
-        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\layout\\activity_glass_detail.xml"
     }
 ]
