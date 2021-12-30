@@ -143,7 +143,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         //물체 감지기 만들기
         val detector = ObjectDetector.createFromFileAndOptions(
                 this,
-            "model011.tflite",//21-10-20
+            "model011.tflite",
                 options
         )
 
@@ -154,9 +154,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         // Step 4: 탐지 결과 출력
         val resultToDisplay = results.map {
             val category = it.categories.first() //정확도가 제일 높은 카테고리 선택
-
-            Log.i("test",category.label.toString())
-            Log.i("test",it.categories.toString())
 
             if(category.label == "FeedingBottle") {
                 label = "젖병"
@@ -183,9 +180,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             val text1 = "${"카테고리 : "+ label+" "}, ${"정확도 : "+category.score.times(100).toInt()}%" //%결과로 출력
-
-            //val text1 = "${"카테고리 : "+ category.label+" "}, ${"정확도 : "+category.score.times(100).toInt()}%" //%결과로 출력
-            //val text2 = "${category.label}, ${category.score.times(100).toInt()}%" //%결과로 출력
             val text2 = "${label}, ${category.score.times(100).toInt()}%" //%결과로 출력
 
             //값 저장해두기
