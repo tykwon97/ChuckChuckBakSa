@@ -92,12 +92,12 @@
         "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\drawable-v24\\paper.jpg"
     },
     {
-        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_battery.jpg.flat",
         "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\drawable-v24\\battery.jpg"
+    },
+    {
+        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_category_milk.png.flat",
@@ -128,12 +128,12 @@
         "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\font\\gmarketsansttfbold.ttf"
     },
     {
-        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
-    },
-    {
         "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_category_icepack.png.flat",
         "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\drawable-v24\\category_icepack.png"
+    },
+    {
+        "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
     },
     {
         "merged": "C:\\study\\ChuckChuckBakSa\\sourcecode\\Dr.ChuckChuck\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_glass.jpg.flat",

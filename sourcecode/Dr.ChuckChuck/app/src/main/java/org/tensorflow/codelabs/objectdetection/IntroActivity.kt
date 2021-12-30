@@ -2,26 +2,26 @@ package org.tensorflow.codelabs.objectdetection
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import org.tensorflow.odelabs.objectdetection.R
+import org.tensorflow.odelabs.objectdetection.databinding.ActivityIntroBinding
 
 class IntroActivity : AppCompatActivity() {
+    lateinit var binding : ActivityIntroBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_intro)
+        binding = ActivityIntroBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         init()
     }
     private fun init(){
-        val btn1 = findViewById<Button>(R.id.start_btn)
-        val btn2 = findViewById<Button>(R.id.category_btn)
 
-        btn1.setOnClickListener {
+        binding.startBtn.setOnClickListener {
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
 
-        btn2.setOnClickListener {
+        binding.categoryBtn.setOnClickListener {
             val intent = Intent(this,CategoryActivity::class.java)
             startActivity(intent)
         }
